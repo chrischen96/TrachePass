@@ -1,2 +1,2 @@
 # TrachePass
-Cross-platform app using Angular and Ionic Framework
+Cross-platform web app using Angular and Ionic Framework
