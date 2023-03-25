@@ -1,0 +1,7 @@
+{
+  "name": "GOSH-Tracheostomy-Passport",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

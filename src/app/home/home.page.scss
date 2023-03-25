@@ -1,0 +1,121 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+/* ion-icon:first-child {
+  position: absolute; left: 8%;
+}
+
+ion-icon:last-child {
+  position: absolute; left: 95%;
+}
+
+ion-text {
+  position: absolute; left: 25%;
+} */
+
+div{
+  outline: none;
+}
+
+div.user-profile {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(235, 160, 90);
+  border-radius:50%;
+  text-align: center;
+  position:fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+div.medical-records{
+  width:120px;
+  height:120px;
+  background-color: rgb(70, 112, 190);
+  border-radius:50%;
+  text-align: center;
+  position:fixed;
+  top: 43%;
+  left: 28%;
+  transform: translate(-50%, 0);
+}
+
+div.appointment{
+  width:120px;
+  height:120px;
+  background-color:rgb(114, 163, 74);
+  border-radius:50%;
+  text-align: center;
+  position:fixed;
+  top: 43%;
+  left: 72%;
+  transform: translate(-50%, 0);
+}
+
+div.educational-resources{
+  width:110px;
+  height:110px;
+  background-color:rgb(240, 185, 34);
+  border-radius:50%;
+  text-align: center;
+  position:fixed;
+  top: 70%;
+  left: 28%;
+  transform: translate(-50%, 0);
+}
+
+div.settings{
+  width:110px;
+  height:110px;
+  background-color:rgb(160, 160, 160);
+  border-radius:50%;
+  text-align: center;
+  position:fixed;
+  top: 70%;
+  left: 72%;
+  transform: translate(-50%, 0);
+}
+
+div.text {
+  position: relative;
+  top: 105%;
+}
+
+.user-profile .text{
+  position: relative;
+  top: 105%;
+}
+
+ion-icon{
+  font-size: 66px;
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+}

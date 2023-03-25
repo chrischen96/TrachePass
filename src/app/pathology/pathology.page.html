@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="medical-record"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Airway Pathology</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()">Edit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reason for Tracheostomy</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="medicalRecord.pathology!=''">
+      {{medicalRecord.pathology}}
+    </ion-card-content>
+    <ion-card-content *ngIf="medicalRecord.pathology==''">
+      No content
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Is Upper Airway Intubatable?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="airway" *ngIf="medicalRecord.intubatation==false">
+      No
+    </ion-card-content>
+    <ion-card-content class="airway" *ngIf="medicalRecord.intubatation==true">
+      Yes
+    </ion-card-content>
+    <div *ngIf="medicalRecord.intubatation==true">
+      <ion-list>
+        <ion-item>
+          <ion-label>Airway Grade:</ion-label>
+          <ion-label>{{medicalRecord.airwayGrade}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Endotracheal Tube Size:</ion-label>
+          <ion-label>{{medicalRecord.tubeSize}}</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>Details:</ion-label> 
+          <ion-label></ion-label> 
+        </ion-item>
+        <ion-card-content>{{medicalRecord.details}}</ion-card-content>
+      </ion-list>
+    </div>
+
+  </ion-card>
+
+</ion-content>

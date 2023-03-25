@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Add New Record</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Operative History
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime placeholder="Select Date"
+        display-format="D MMM YYYY" 
+        picker-format="D MMM YYYY" 
+        formControlName="date" 
+        style="color: dodgerblue;"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-input 
+          formControlName="type" 
+          placeholder="Operation Type"
+          style="color: dodgerblue; text-align: end;">
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="full"> 
+        <ion-label position="stacked">Details</ion-label>
+        <ion-textarea rows="5"
+        placeholder="Enter Details" 
+        formControlName="details"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <ion-item lines='full' (click)="addPhotoToGallery()">
+    <ion-icon name="add-circle-outline" style="color:dodgerblue;"></ion-icon>
+    Add pictures
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="6"
+      *ngFor="let photo of photos; index as position; let counter = index">
+        <ion-img [src]="photo.webviewPath" (click)="openViewer(photo.webviewPath)"></ion-img>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>New Appointment</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-card>
+      <ion-item>
+        <ion-input placeholder='Title' formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder='Doctor' formControlName="doctor"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input placeholder='Location' formControlName="location"></ion-input>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-icon name="calendar-clear-outline" slot="start"></ion-icon>
+        <ion-label>Date</ion-label>
+        <ion-datetime 
+        placeholder="Select Date"
+        display-format="D/MMM/YYYY HH:mm" 
+        formControlName="appointmentDate"></ion-datetime>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-icon name="alarm-outline" slot="start"></ion-icon>
+        <ion-label>Alarm</ion-label>
+        <ion-select 
+        formControlName="alarmDateTime" 
+        interface="action-sheet"
+        style="max-width: 100%;">
+        <ion-select-option value={{0}}>At time of event</ion-select-option>
+          <ion-select-option value={{1000*60*30}}>30 minutes before</ion-select-option>
+          <ion-select-option value={{1000*60*60}}>1 hour before</ion-select-option>
+          <ion-select-option value={{1000*60*120}}>2 hours before</ion-select-option>
+          <ion-select-option value={{1000*60*60*24}}>1 day before</ion-select-option>
+          <ion-select-option value={{1000*60*60*48}}>2 days before</ion-select-option>
+          <ion-select-option value={{1000*60*60*24*7}}>1 week before</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+  </form>
+</ion-content>

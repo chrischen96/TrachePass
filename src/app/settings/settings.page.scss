@@ -1,0 +1,45 @@
+div {
+    width: 80%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+ion-button ion-icon {
+    position: absolute;
+    left: 10%;
+}
+
+ion-button ion-text {
+    position: absolute;
+    left: 30%;
+}
+
+div ion-button {
+    margin-top: 8%;
+}
+
+#reset {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: 10%;
+}
+
+#isReset {
+    width: 80%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: 10%;
+    text-align: center;
+}
+
+#isReset ion-text{
+    color:red;
+    font-weight: bold;
+    font-size: large;
+}
+
+#isReset ion-icon {
+    color:red;
+}

@@ -1,0 +1,210 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Back</ion-button>
+    </ion-buttons>
+    <ion-title style="padding: 0px 80px;">{{this.date | date:'YYYY/M/d, h:mm a'}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="warningRestore()">Restore</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="this.type == 'User Profile'" class="userProfile">
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Patient Details
+        </ion-label>
+        <ion-label></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-label>{{this.value.name || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date of Birth</ion-label>
+        <ion-label>{{(this.value.birthDate  | date : 'd MMM y') || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-label>{{this.value.sex}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>NHS Number</ion-label>
+        <ion-label>{{this.value.nhsNumber||'Not Set'}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Caregiver
+        </ion-label>
+        <ion-label></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>{{this.value.relation1 || 'Not Set'}}</ion-label>
+        <ion-label>{{this.value.r1Name || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="this.value.relation2 != null || this.value.r2Name != null">
+        <ion-label>{{this.value.relation2}}</ion-label>
+        <ion-label>{{this.value.r2Name}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Hospital Details
+        </ion-label>
+        <ion-label></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Consultant</ion-label>
+        <ion-label>{{this.value.consultant || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Trust</ion-label>
+        <ion-label>{{this.value.trust || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Emergency Contact</ion-label>
+        <ion-label>{{this.value.emergencyContact || 'Not Set'}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="this.type == 'Medical Record'">
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Tracheostomy Details
+        </ion-label>
+        <ion-label></ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Tube Type</ion-label>
+        <ion-label>{{this.value.tubeType || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Subtype</ion-label>
+        <ion-label>{{this.value.subType || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Size - ID (mm)</ion-label>
+        <ion-label>{{this.value.sizeID || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Shaft Length (mm)</ion-label>
+        <ion-label>{{this.value.shaftLength || 'Not Set'}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Suction Length</ion-label>
+        <ion-label>{{this.value.suctionLength || 'Not Set'}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Medical Conditions
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>
+          <h2>Allergies</h2>
+          <p> {{this.value.allergies || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Medications</h2>
+          <p> {{this.value.medications || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Other Conditions</h2>
+          <p> {{this.value.otherMedicalConditions || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Airway Pathology
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>
+          <h2>Pathology</h2>
+          <p> {{this.value.pathology || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h2>Intubatation</h2>
+          <p> {{this.value.intubatation || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+
+      <div *ngIf="this.value.intubatation==true"></div>
+      <ion-item>
+        <ion-label>
+          <h2>Airway Grade:</h2>
+          <p> {{this.value.airwayGrade || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Endotracheal Tube Size:</h2>
+          <p> {{this.value.tubeSize || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Details:</h2>
+          <p> {{this.value.details || 'Not Set'}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin" *ngIf="this.value.operativeHistory != null">
+      <ion-list-header lines="full">
+        <ion-label>
+          Operative History
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item *ngFor="let history of histories">
+        <ion-label>
+          <h2>{{history.date || 'Not Set'}}</h2>
+          <h3>{{history.type || 'Not Set'}}</h3>
+          <p>{{history.details || 'Not Set'}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

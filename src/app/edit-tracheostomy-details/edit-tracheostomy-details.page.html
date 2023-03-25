@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Edit</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Tracheostomy Details
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Manual input</ion-label>
+        <ion-toggle formControlName="customize" (ionChange)="toggleCustom()"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="!form.value.customize">
+        <ion-item>
+          <ion-label>Tube Type: </ion-label>
+          <ion-select (ionChange)="selectedTubeType()" formControlName="tubeType">
+            <div *ngFor="let tubetype of tubeTypes | keyvalue">
+              <!-- <ion-text>{{tubetype.tubeTypeName}}</ion-text> -->
+              <ion-select-option value="{{tubetype.key}}">{{tubetype.key}}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sub Type: </ion-label>
+          <ion-select (ionChange)="selectedSubTubeType()" formControlName="subType">
+            <div *ngFor="let subtype of subTypeList | keyvalue">
+              <!-- <ion-text>{{tubetype.tubeTypeName}}</ion-text> -->
+              <ion-select-option value="{{subtype.key}}">{{subtype.key}}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Size - ID (mm): </ion-label>
+          <ion-select (ionChange)="selectedSize()" formControlName="sizeID">
+            <div *ngFor="let sizeID of sizeIDList | keyvalue">
+              <ion-select-option value="{{sizeID.key}}">{{sizeID.key}}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label *ngIf=" form.value.tubeType=='Bivona Hyperflex' ">
+            Max usable length (mm): 
+          </ion-label>
+          <ion-label *ngIf=" form.value.tubeType=='Shiley Uncuffed' || 
+          form.value.tubeType=='Shiley Cuffed' || 
+          form.value.tubeType=='Adult Portex Blue Line Ultra' || 
+          form.value.tubeType=='Adult Bivona' ">
+            Length (mm): 
+          </ion-label>
+          <ion-label *ngIf=" form.value.tubeType!='Bivona Hyperflex' && 
+          form.value.tubeType!='Shiley Uncuffed' && 
+          form.value.tubeType!='Shiley Cuffed' &&  
+          form.value.tubeType!='Adult Portex Blue Line Ultra' &&  
+          form.value.tubeType!='Adult Bivona' ">
+            Shaft Length (mm): 
+          </ion-label>
+          <ion-input class="length" formControlName="shaftLength">
+          </ion-input>
+        </ion-item> 
+      </div>
+
+      <div *ngIf="form.value.customize">
+        <ion-item>
+          <ion-label>Tube Type: </ion-label>
+          <ion-input type="text" formControlName="tubeType"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Sub Type: </ion-label>
+          <ion-input type="text" formControlName="subType"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Size - ID (mm): </ion-label>
+          <ion-input type="text" formControlName="sizeID"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Shaft Length (mm): </ion-label>
+          <ion-input type="text" formControlName="shaftLength"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label>Suction Length (mm): </ion-label>
+        <ion-input type="text" formControlName="suctionLength"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </form>
+</ion-content>

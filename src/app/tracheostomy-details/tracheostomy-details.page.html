@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/medical-record"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()">Edit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Tube Type</ion-card-subtitle>
+      <ion-card-title>{{medicalRecord.tubeType}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>SubType</ion-card-subtitle>
+      <ion-card-title>{{medicalRecord.subType}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Size - ID</ion-card-subtitle>
+      <ion-card-title>{{medicalRecord.sizeID}}
+        <b *ngIf="medicalRecord.sizeID != 'Unknown'">mm</b>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <div *ngIf=" medicalRecord.tubeType=='Bivona Hyperflex' ">
+        <ion-card-subtitle>Max usable length</ion-card-subtitle>
+      </div>
+      <div *ngIf=" medicalRecord.tubeType=='Shiley Uncuffed' || 
+      medicalRecord.tubeType=='Shiley Cuffed' || 
+      medicalRecord.tubeType=='Adult Portex Blue Line Ultra' || 
+      medicalRecord.tubeType=='Adult Bivona' ">
+        <ion-card-subtitle>Length</ion-card-subtitle>
+      </div>
+      <div *ngIf=" medicalRecord.tubeType!='Bivona Hyperflex' && 
+      medicalRecord.tubeType!='Shiley Uncuffed' && 
+      medicalRecord.tubeType!='Shiley Cuffed' &&  
+      medicalRecord.tubeType!='Adult Portex Blue Line Ultra' &&  
+      medicalRecord.tubeType!='Adult Bivona' ">
+        <ion-card-subtitle>Shaft Length</ion-card-subtitle>
+      </div>
+      <ion-card-title>{{medicalRecord.shaftLength}}
+        <b *ngIf="medicalRecord.shaftLength != 'Unknown'">mm</b>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Suction Length</ion-card-subtitle>
+      <ion-card-title>{{medicalRecord.suctionLength}}
+        <b *ngIf="medicalRecord.suctionLength != 'Unknown'">mm</b>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

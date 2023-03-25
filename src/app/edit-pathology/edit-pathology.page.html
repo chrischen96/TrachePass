@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Edit</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Reason for Tracheostomy
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item lines='full'>
+        <ion-textarea rows="6"
+        placeholder="Enter reasons"
+        formControlName="pathology"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Airway Condition
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Is Upper Airway Intubatable?</ion-label>
+        <ion-toggle formControlName="intubatation" (ionChange)="intubatation()"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="this.form.value.intubatation==true">
+        <ion-item>
+          <ion-label>Airway Grade</ion-label>
+          <ion-select formControlName='airwayGrade' interface="action-sheet">
+            <ion-select-option value="1">1</ion-select-option>
+            <ion-select-option value="2">2</ion-select-option>
+            <ion-select-option value="3">3</ion-select-option>
+            <ion-select-option value="4">4</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Endotracheal tube size</ion-label>
+          <ion-select formControlName='tubeSize'>
+            <div *ngFor="let tubeSize of tubeSizeList">
+              <ion-select-option  value="{{tubeSize}}">{{tubeSize}}</ion-select-option>
+            </div> 
+          </ion-select>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="stacked" >Details</ion-label>
+          <ion-textarea rows="4"
+          placeholder="Enter details"
+          formControlName="details"></ion-textarea>
+        </ion-item>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title style="padding: 0px 80px;">Patient Information</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile">
+    <div class="icon">
+      <ion-icon class="icon" name="person-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div>
+  <form [formGroup]="form">
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Patient Details
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input placeholder="Not Set" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date of Birth</ion-label>
+        <ion-datetime placeholder="Select Date"
+        display-format="D MMM YYYY" 
+        picker-format="D MMM YYYY" 
+        formControlName="birthDate" 
+        style="color: dodgerblue;"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-input placeholder="Not Set" formControlName="sex" (click)="openPickerSex()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>NHS Number</ion-label>
+        <ion-input placeholder="Not Set" formControlName="nhsNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hospital Number</ion-label>
+        <ion-input placeholder="Not Set" formControlName="hospitalNumber"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Caregiver
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-input placeholder="Relationship" formControlName="relation1" (click)="openPicker1()"></ion-input>
+        <ion-icon class="arrow" name="chevron-forward-outline"></ion-icon>
+        <ion-input placeholder="Not Set" formControlName="r1Name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Relationship" formControlName="relation2" (click)="openPicker2()"></ion-input>
+        <ion-icon class="arrow" name="chevron-forward-outline"></ion-icon>
+        <ion-input placeholder="Not Set" formControlName="r2Name"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-no-margin">
+      <ion-list-header lines="full">
+        <ion-label>
+          Hospital Details
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Consultant</ion-label>
+        <ion-input placeholder="Not Set" formControlName="consultant"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Trust</ion-label>
+        <ion-input placeholder="Not Set" formControlName="trust"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Emergency Contact</ion-label>
+        <ion-input placeholder="Not Set" formControlName="emergencyContact"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </form>
+  <div style="height: 35px;"></div>
+  </div>
+
+
+</ion-content>

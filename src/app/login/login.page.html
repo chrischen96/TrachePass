@@ -1,0 +1,67 @@
+<ion-header *ngIf="!isModal">
+</ion-header>
+
+<ion-content >
+<div style="width: 80%; margin: auto;">
+  <div style="display: flex; justify-content: center; margin-top: 100px; margin-bottom: 30px;">
+    <ion-img 
+    style="width: 1in; height: 1in;" 
+    src="../assets/icon/icon.png"></ion-img>
+  </div>
+
+  <div *ngIf="isBioAvaliable && isPWsetted">
+    <ion-button style="margin-top: 30px;" color="primary" expand="block" (click)="loginBio()">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        Login with Biometric
+      </ion-button>
+  </div>
+
+  <div *ngIf="isPWsetted" style="margin-top: 20%;">
+    <form [formGroup]="passwordForm" (ngSubmit)="loginPW()">
+      <ion-item lines="full">
+        <ion-input type="password" formControlName="inputPW" placeholder="Password"
+        ></ion-input>
+      </ion-item>
+      <ion-item lines="none" *ngIf="isPWwrong">
+        <ion-icon color="danger" slot="start" name="alert-circle-outline"></ion-icon>
+        <ion-text color="danger" class="form-error">
+          Incorrect Password.
+        </ion-text>
+      </ion-item>
+      <ion-button style="margin-top: 5%;" color="primary" expand="block" type="submit" [disabled]="!passwordForm.valid">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        Login
+      </ion-button>
+    </form>
+  </div>
+
+  <div *ngIf="!isPWsetted">
+    <ion-toolbar style="text-align: center;">
+      <ion-label>Welcome to Tracheostomy Passport</ion-label>
+    </ion-toolbar>
+    <ion-toolbar style="text-align: center;">
+      <ion-label>Please Setup Your Password</ion-label>
+    </ion-toolbar>
+
+    <form [formGroup]="setPasswordForm" (ngSubmit)="setPW()" style="margin-top: 5%;">
+      <ion-item style="margin-left: -15px;">
+        <ion-input type="password" formControlName="setPW" placeholder="New Password"></ion-input>
+      </ion-item>
+      <ion-item style="margin-left: -15px;">
+        <ion-input type="password" formControlName="confirmPW" placeholder="Confirm Password"></ion-input>
+      </ion-item>
+      <ion-item lines="none" *ngIf="isPWConfirmNotEqual">
+        <ion-icon color="danger" slot="start" name="alert-circle-outline"></ion-icon>
+        <ion-text color="danger" class="form-error">
+          Password and confirm does not match.
+        </ion-text>
+      </ion-item>
+      <ion-button style="margin-top: 5%;"
+      color="primary" expand="block" type="submit" [disabled]="!setPasswordForm.valid">
+        <ion-icon slot="start" name="key-outline"></ion-icon>
+        Set password
+      </ion-button>
+    </form>
+  </div>
+</div>
+</ion-content>

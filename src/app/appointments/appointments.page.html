@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Appointments</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()">Add</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="appointmentList.length == 0" style="height: auto;">
+    <ion-card-header>
+      <ion-card-title>No Appointment</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngFor="let appointment of appointmentList; let i = index" (click)=choose(i)>
+
+    <ion-item lines="none">
+      <ion-label style="font-weight: bold; color:rebeccapurple">
+        {{appointment.appointmentDate | date : 'dd MMM y, HH:mm, EEEE'}}
+      </ion-label>
+    </ion-item>
+
+  </ion-card>
+</ion-content>

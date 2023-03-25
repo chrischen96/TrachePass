@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="medical-record"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medical Conditions</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()">Edit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Allergies</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="medicalRecord.allergies!=''">
+      {{medicalRecord.allergies}}
+    </ion-card-content>
+    <ion-card-content *ngIf="medicalRecord.allergies==''">
+      No content
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Medications</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="medicalRecord.medications!=''">
+      {{medicalRecord.medications}}
+    </ion-card-content>
+    <ion-card-content *ngIf="medicalRecord.medications==''">
+      No content
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Other Medical Conditions</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="medicalRecord.otherMedicalConditions!=''">
+      {{medicalRecord.otherMedicalConditions}}
+    </ion-card-content>
+    <ion-card-content *ngIf="medicalRecord.otherMedicalConditions==''">
+      No content
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medical Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card routerLink="./pathology">
+    <ion-item lines="none" href="#">
+      <ion-icon name="flask-outline" slot="start" style="color:darkorange;"></ion-icon>
+      <ion-label style="font-weight: bold; color:darkorange;">Airway Pathology</ion-label>
+    </ion-item>
+    <ion-card-content style="font-weight: bold;">
+      <ion-label>- Reason for Tracheostomy</ion-label><br>
+      <ion-label>- Upper Airway Condition</ion-label><br>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="./tracheostomy-details">
+    <ion-item lines="none" href="#">
+      <ion-icon name="document-text-outline" slot="start" style="color:dodgerblue;"></ion-icon>
+      <ion-label style="font-weight: bold; color:dodgerblue;">Tracheostomy Details</ion-label>
+    </ion-item>
+    <ion-card-content style="font-weight: bold;">
+      <ion-label>- Tube Type and Size</ion-label><br>
+      <ion-label>- Shaft and Suction Length</ion-label><br>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="./operative-history">
+    <ion-item lines="none" href="#">
+      <ion-icon name="file-tray-full-outline" slot="start" style="color:mediumseagreen;"></ion-icon>
+      <ion-label style="font-weight: bold; color:mediumseagreen;">Operative History</ion-label>
+    </ion-item>
+    <ion-card-content style="font-weight: bold;">
+      <ion-label>- Details of Surgery</ion-label><br>
+      <ion-label>- Details from MLBs</ion-label><br>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="./medical-condition">
+    <ion-item lines="none" href="#">
+      <ion-icon name="medical-outline" slot="start" style="color:orangered;"></ion-icon>
+      <ion-label style="font-weight: bold; color:orangered">Medical Conditions</ion-label>
+    </ion-item>
+    <ion-card-content style="font-weight: bold;">
+      <ion-label>- Allergies</ion-label><br>
+      <ion-label>- Medications</ion-label><br>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

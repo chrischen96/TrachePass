@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Edit</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Allergies
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item lines='full'>
+        <ion-textarea autoGrow="true" rows="2"
+        placeholder="Enter any known allergies"
+        formControlName="allergies"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Medications
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item lines='full'>
+        <ion-textarea autoGrow="true" rows="2"
+        placeholder="Enter current medications"
+        formControlName="medications"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header lines="full">
+        <ion-label>
+          Other Medical Conditions
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item lines='full'>
+        <ion-textarea autoGrow="true" rows="2"
+        placeholder="Enter other medical conditions"
+        formControlName="otherMedicalConditions"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="edit()"><ion-icon name="chevron-back-outline"></ion-icon>Back</ion-button>
+    </ion-buttons>
+    <ion-title>Appointments</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="delete()">Delete</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label>Title:</ion-label>
+      <ion-label>{{appointment.title}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Doctor:</ion-label>
+      <ion-label>{{appointment.doctor}}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Location:</ion-label>
+      <ion-label>{{appointment.location}}</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- <div *ngIf='this.appointment.appointmentDate != "Not Set" && this.appointment.appointmentTime != "Not Set"'>  --> 
+    <ion-card>
+      <ion-item>
+        <ion-icon name="calendar-clear-outline" slot="start"></ion-icon>
+        <ion-label>Date</ion-label>
+        <ion-label>{{appointment.appointmentDate  | date : 'd MMM y'}}</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon name="time-outline" slot="start"></ion-icon>
+        <ion-label>Time</ion-label>
+        <ion-label>{{appointment.appointmentDate  | date : 'HH:mm'}}</ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-button id='map' color="success" expand="block" (click)="openMap()">
+      <ion-icon slot="start" name="navigate-circle-outline"></ion-icon>
+      Show Location on Google Map
+    </ion-button>
+
+<!--     <ion-button color="danger" expand="block" (click)="delete()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      <ion-text slot="end">Delete</ion-text>
+    </ion-button> -->
+  <!-- </div> -->
+
+</ion-content>

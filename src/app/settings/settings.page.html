@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <ion-button color="warning" expand="block" routerLink="version-history" style="margin-bottom: 5%;">
+      <ion-icon slot="start" name="reload-outline"></ion-icon>
+      <ion-text slot="end">Version History</ion-text>
+    </ion-button>
+
+    <ion-button color="danger" expand="block" routerLink="change-pw" style="margin-bottom: 5%;">
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-text slot="end">Change Password</ion-text>
+    </ion-button>
+  </div>
+
+  <div id="reset" *ngIf = "!isResetStorage">
+    <ion-button color="medium" expand="block" (click)="resetStorage()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      <ion-text slot="end">Reset Storage</ion-text>
+    </ion-button>
+  </div>
+
+  <div id="isReset" *ngIf = "isResetStorage">
+    <ion-text>Storage has been reseted.</ion-text>
+  </div>
+
+</ion-content>

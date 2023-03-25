@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="setPasswordForm" (ngSubmit)="confirmloginPW()" style="margin-top: 20px;">
+
+    <ion-item>
+      <ion-label class="psw">Old Password</ion-label>
+      <ion-input type="password" formControlName="oldPW" placeholder="Required"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="isPWwrong">
+      <ion-icon color="danger" slot="start" name="alert-circle-outline"></ion-icon>
+      <ion-text color="danger" class="form-error">
+        Incorrect Password.
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="psw">New Password</ion-label>
+      <ion-input type="password" formControlName="setPW" placeholder="Required"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="psw">Confirm Password</ion-label>
+      <ion-input type="password" formControlName="confirmPW" placeholder="Required"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="isPWConfirmNotEqual && !isChangePWSuceed">
+      <ion-icon color="danger" slot="start" name="alert-circle-outline"></ion-icon>
+      <ion-text color="danger" class="form-error">
+        Password and confirm does not match.
+      </ion-text>
+    </ion-item>
+
+    <ion-button color="danger" expand="block" type="submit" [disabled]="!setPasswordForm.valid && !isChangePWSuceed">
+      <ion-icon slot="start" name="key-outline"></ion-icon>
+      Reset password
+    </ion-button>
+
+  </form>
+
+  <ion-item lines="none" *ngIf="isChangePWSuceed">
+    <ion-icon color="success" slot="start" name="checkmark-circle-outline"></ion-icon>
+    <ion-text color="success" class="form-error">
+      Password Changed.
+    </ion-text>
+  </ion-item>
+
+</ion-content>
+

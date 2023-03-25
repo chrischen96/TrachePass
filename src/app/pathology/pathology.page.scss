@@ -1,0 +1,27 @@
+ion-card-title {
+    font-size:medium;
+    font-weight: bold;
+    color:rgb(255, 120, 0);
+}
+
+ion-card-header {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+ion-card-content{
+    padding-top: 0px;
+    padding-bottom: 15px;
+    color: black;
+    //font-size: 16px;
+}
+
+ion-label:last-child {
+    position: absolute;
+    right: 5%;
+    font-weight: bold;
+}
+
+.airway {
+    font-weight:bold;
+}
